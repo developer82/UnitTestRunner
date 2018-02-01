@@ -14,7 +14,7 @@ namespace UniteTestRunner.Demo
             testRunner.RunTest(tests.PassingTest, "This test should pass", "OK", "FAILED");
             testRunner.RunTest(tests.FailingTest, "This test should fail", "OK", "FAILED");
 
-            testRunner.RunTestClass(typeof(SampleTests));
+            testRunner.RunTestClass(typeof(SampleTests), true);
 
             Console.ReadLine();
         }

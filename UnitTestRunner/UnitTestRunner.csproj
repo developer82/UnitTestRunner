@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Ophir Oren</Authors>
+    <Company />
+    <Description>Custom runner for methods and classes that can return result of a method run or print test result to console</Description>
+    <Copyright>Ophir Oren 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/developer82/UnitTestRunner/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/developer82/UnitTestRunner</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/developer82/UnitTestRunner</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

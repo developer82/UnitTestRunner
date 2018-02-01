@@ -23,22 +23,42 @@ namespace UnitTestRunner
 
         public bool RunTest(Action testMethod, string testText, string passText, string failText)
         {
-            Console.Write($"{testText}...\t\t");
+            return RunTest(testMethod, testText, passText, failText, false);
+        }
+
+        public bool RunTest(Action testMethod, string testText, string passText, string failText, bool prepend)
+        {
+            if (!prepend)
+                Console.Write($"{testText}... ");
 
             bool testPassed = RunTest(testMethod);
             if (testPassed)
             {
-                ColorConsole.WithGreenText.WriteLine($"[{passText}]");
+                if (prepend)
+                    ColorConsole.WithGreenText.Write($"[{passText}]");
+                else
+                    ColorConsole.WithGreenText.WriteLine($"[{passText}]");
             }
             else
             {
-                ColorConsole.WithRedText.WriteLine($"[{failText}]");
+                if (prepend)
+                    ColorConsole.WithRedText.Write($"[{failText}]");
+                else
+                    ColorConsole.WithRedText.WriteLine($"[{failText}]");
             }
+
+            if (prepend)
+                Console.WriteLine($" {testText}");
 
             return testPassed;
         }
 
         public void RunTestClass(Type testClass)
+        {
+            RunTestClass(testClass, false);
+        }
+
+        public void RunTestClass(Type testClass, bool prepend)
         {
             MethodInfo[] methodInfos = testClass.GetMethods(BindingFlags.Public | BindingFlags.Instance);
             object testClassInstance = Activator.CreateInstance(testClass);
@@ -60,7 +80,7 @@ namespace UnitTestRunner
                 }
 
                 Action action = (Action)methodInfo.CreateDelegate(typeof(Action), testClassInstance);
-                RunTest(action, methodNameAsText, "PASSED", "FAILED");
+                RunTest(action, methodNameAsText, "PASSED", "FAILED", prepend);
             }
         }
     }
