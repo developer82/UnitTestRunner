@@ -10,6 +10,9 @@
     <PackageLicenseUrl>https://github.com/developer82/UnitTestRunner/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/developer82/UnitTestRunner</PackageProjectUrl>
     <RepositoryUrl>https://github.com/developer82/UnitTestRunner</RepositoryUrl>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
